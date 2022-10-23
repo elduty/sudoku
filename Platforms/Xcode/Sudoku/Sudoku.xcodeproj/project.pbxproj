@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3CA95B02905861000305098 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95AF2905861000305098 /* main.cpp */; };
 		D3CA95CC2905B10200305098 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95CB2905B10200305098 /* GoogleTests.mm */; };
 		D3CA95CE2905B13F00305098 /* libGoogleTestMain_mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CA95C82905B0B100305098 /* libGoogleTestMain_mac.dylib */; };
+		D3CA95D02905B8A000305098 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95CF2905B8A000305098 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +57,10 @@
 
 /* Begin PBXFileReference section */
 		D3CA95A7290585C700305098 /* Sudoku */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sudoku; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3CA95AF2905861000305098 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../src/main.cpp; sourceTree = "<group>"; };
 		D3CA95B52905B04F00305098 /* SudokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleTest.xcodeproj; path = ../../../../external/MMGoogleTest/platforms/Xcode/GoogleTest.xcodeproj; sourceTree = "<group>"; };
 		D3CA95CB2905B10200305098 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GoogleTests.mm; path = ../../../../external/MMGoogleTest/platforms/Xcode/GoogleTests.mm; sourceTree = "<group>"; };
+		D3CA95CF2905B8A000305098 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../src/sudoku/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 		D3CA95A9290585C700305098 /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
-				D3CA95AF2905861000305098 /* main.cpp */,
+				D3CA95CF2905B8A000305098 /* main.cpp */,
 			);
 			path = Sudoku;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3CA95B02905861000305098 /* main.cpp in Sources */,
+				D3CA95D02905B8A000305098 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
