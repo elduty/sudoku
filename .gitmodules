@@ -1,0 +1,3 @@
+[submodule "external/MMGoogleTest"]
+	path = external/MMGoogleTest
+	url = git@bitbucket.org:mrmartian/mmgoogletest.git
