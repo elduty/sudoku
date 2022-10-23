@@ -6,7 +6,6 @@
 //
 
 #include <stdio.h>
-#include <memory>
 #include "BoardTest.h"
 #include "Board.h"
 
@@ -14,14 +13,24 @@ using namespace sudoku;
 
 void BoardTest::SetUp()
 {
+    _board = std::make_unique<Board>();
 }
 
 void BoardTest::TearDown()
 {
 }
 
-TEST_F(BoardTest, checkBoard)
+TEST(BoardTest, checkLines)
 {
-    std::unique_ptr<Board> board = std::make_unique<Board>();
+    EXPECT_EQ(true, false);
+}
+
+TEST(BoardTest, checkColumns)
+{
+    EXPECT_EQ(true, false);
+}
+
+TEST(BoardTest, checkQuadrants)
+{
     EXPECT_EQ(true, false);
 }

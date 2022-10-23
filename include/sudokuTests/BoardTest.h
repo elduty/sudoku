@@ -8,12 +8,16 @@
 #ifndef BoardTest_h
 #define BoardTest_h
 
+#include <memory>
 #include "gtest/gtest.h"
 
 namespace sudoku {
+class Board;
 
 class BoardTest : public testing::Test
 {
+private:
+    std::unique_ptr<Board> _board;
 protected:
     void SetUp();
     void TearDown();
