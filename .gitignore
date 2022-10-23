@@ -48,3 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+Platforms/Xcode/Sudoku/DerivedData
+Platforms/Xcode/Sudoku/Sudoku.xcodeproj/project.xcworkspace/xcuserdata
+Platforms/Xcode/Sudoku/Sudoku.xcodeproj/xcuserdata
