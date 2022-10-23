@@ -26,6 +26,17 @@ bool isVectorUnique(const std::vector<unsigned int> & data)
     return !(std::adjacent_find(sortedData.begin(), sortedData.end()) != sortedData.end());
 }
 
+TEST(BoardTest, checkRange)
+{
+    Board board;
+    const std::vector<unsigned int>& data = board.getBoardData();
+    for(auto cell : data)
+    {
+        EXPECT_GT(cell, 0);
+        EXPECT_LE(cell, 9);
+    }
+}
+
 TEST(BoardTest, checkLines)
 {
     Board board;
