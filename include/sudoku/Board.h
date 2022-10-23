@@ -21,7 +21,8 @@ private:
 public:
     Board();
     ~Board();
-    friend std::ostream& operator<<(std::ostream& os, const Board& board);
+    friend std::ostream& operator<<(std::ostream&, const Board&);
+    inline const std::vector<unsigned int>& getBoardData() const {return *_boardData;}
 };
 
 }
