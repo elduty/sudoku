@@ -19,6 +19,8 @@ class Board
 private:
     std::unique_ptr<std::vector<unsigned int>> _boardData;
 public:
+    static const unsigned int BOARD_WIDTH = 9;
+    static const unsigned int BOARD_HIGHT = 9;
     Board();
     ~Board();
     friend std::ostream& operator<<(std::ostream&, const Board&);

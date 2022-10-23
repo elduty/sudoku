@@ -10,14 +10,11 @@
 
 using namespace sudoku;
 
-const unsigned int _BOARD_WIDTH = 9;
-const unsigned int _BOARD_HIGHT = 9;
-
 Board::Board():_boardData(std::make_unique<std::vector<unsigned int>>())
 {
-    _boardData->reserve(_BOARD_WIDTH * _BOARD_HIGHT);
-    for(unsigned int y = 0; y < _BOARD_HIGHT; ++y)
-        for(unsigned int x = 0; x < _BOARD_WIDTH; ++x)
+    _boardData->reserve(BOARD_WIDTH * BOARD_HIGHT);
+    for(unsigned int y = 0; y < BOARD_HIGHT; ++y)
+        for(unsigned int x = 0; x < BOARD_WIDTH; ++x)
             _boardData->push_back(x + 1);
 }
 
@@ -29,12 +26,12 @@ Board::~Board()
 std::ostream& sudoku::operator<<(std::ostream& os, const Board& board)
 {
     os << "-------------------" << std::endl;
-    for(unsigned int y = 0; y < _BOARD_HIGHT; ++y)
+    for(unsigned int y = 0; y < Board::BOARD_HIGHT; ++y)
     {
         os << '|';
-        for(unsigned int x = 0; x < _BOARD_WIDTH; ++x)
+        for(unsigned int x = 0; x < Board::BOARD_WIDTH; ++x)
         {
-            os << board._boardData->at(y * _BOARD_HIGHT + x);
+            os << board._boardData->at(y * Board::BOARD_HIGHT + x);
             if(x%3 == 2)
                 os << '|';
             else
