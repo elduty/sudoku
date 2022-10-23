@@ -11,6 +11,8 @@
 		D3CA95CE2905B13F00305098 /* libGoogleTestMain_mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CA95C82905B0B100305098 /* libGoogleTestMain_mac.dylib */; };
 		D3CA95D02905B8A000305098 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95CF2905B8A000305098 /* main.cpp */; };
 		D3CA95D42905B96900305098 /* BoardTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95D32905B96900305098 /* BoardTest.cpp */; };
+		D3CA95D72905BC1F00305098 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95D62905BC1F00305098 /* Board.cpp */; };
+		D3CA95D82905BC7500305098 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95D62905BC1F00305098 /* Board.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		D3CA95CF2905B8A000305098 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../src/sudoku/main.cpp; sourceTree = "<group>"; };
 		D3CA95D22905B94300305098 /* BoardTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BoardTest.h; path = ../../../../include/sudokuTests/BoardTest.h; sourceTree = "<group>"; };
 		D3CA95D32905B96900305098 /* BoardTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BoardTest.cpp; path = ../../../../src/sudokuTests/BoardTest.cpp; sourceTree = "<group>"; };
+		D3CA95D52905BBAA00305098 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Board.h; path = ../../../../include/sudoku/Board.h; sourceTree = "<group>"; };
+		D3CA95D62905BC1F00305098 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Board.cpp; path = ../../../../src/sudoku/Board.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				D3CA95CF2905B8A000305098 /* main.cpp */,
+				D3CA95D52905BBAA00305098 /* Board.h */,
+				D3CA95D62905BC1F00305098 /* Board.cpp */,
 			);
 			path = Sudoku;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CA95D72905BC1F00305098 /* Board.cpp in Sources */,
 				D3CA95D02905B8A000305098 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CA95D82905BC7500305098 /* Board.cpp in Sources */,
 				D3CA95D42905B96900305098 /* BoardTest.cpp in Sources */,
 				D3CA95CC2905B10200305098 /* GoogleTests.mm in Sources */,
 			);
