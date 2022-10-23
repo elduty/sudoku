@@ -13,24 +13,36 @@ using namespace sudoku;
 
 void BoardTest::SetUp()
 {
-    _board = std::make_unique<Board>();
 }
 
 void BoardTest::TearDown()
 {
 }
 
+bool isVectorUnique(const std::vector<unsigned int> & data)
+{
+    std::vector<unsigned int> sortedData = data;
+    sort(sortedData.begin(), sortedData.end());
+    return !(std::adjacent_find(sortedData.begin(), sortedData.end()) != sortedData.end());
+}
+
 TEST(BoardTest, checkLines)
 {
-    EXPECT_EQ(true, false);
+    Board board;
+    const std::vector<unsigned int>& data = board.getBoardData();
+    EXPECT_EQ(isVectorUnique(data), true);
 }
 
 TEST(BoardTest, checkColumns)
 {
-    EXPECT_EQ(true, false);
+    Board board;
+    const std::vector<unsigned int>& data = board.getBoardData();
+    EXPECT_EQ(isVectorUnique(data), true);
 }
 
 TEST(BoardTest, checkQuadrants)
 {
-    EXPECT_EQ(true, false);
+    Board board;
+    const std::vector<unsigned int>& data = board.getBoardData();
+    EXPECT_EQ(isVectorUnique(data), true);
 }
