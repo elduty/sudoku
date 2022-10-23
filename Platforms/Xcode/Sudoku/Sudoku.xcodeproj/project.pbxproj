@@ -8,7 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		D3CA95B02905861000305098 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95AF2905861000305098 /* main.cpp */; };
+		D3CA95CC2905B10200305098 /* GoogleTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3CA95CB2905B10200305098 /* GoogleTests.mm */; };
+		D3CA95CE2905B13F00305098 /* libGoogleTestMain_mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CA95C82905B0B100305098 /* libGoogleTestMain_mac.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3CA95C32905B0B100305098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 38E00BDE1E9CE854007FED1D;
+			remoteInfo = GoogleTest;
+		};
+		D3CA95C52905B0B100305098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 381396C82307820C003ACB87;
+			remoteInfo = GoogleTest_mac;
+		};
+		D3CA95C72905B0B100305098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 381396D723078229003ACB87;
+			remoteInfo = GoogleTestMain_mac;
+		};
+		D3CA95C92905B0DB00305098 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 381396D623078229003ACB87;
+			remoteInfo = GoogleTestMain_mac;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D3CA95A5290585C700305098 /* CopyFiles */ = {
@@ -25,6 +58,9 @@
 /* Begin PBXFileReference section */
 		D3CA95A7290585C700305098 /* Sudoku */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sudoku; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3CA95AF2905861000305098 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../src/main.cpp; sourceTree = "<group>"; };
+		D3CA95B52905B04F00305098 /* SudokuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SudokuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GoogleTest.xcodeproj; path = ../../../../external/MMGoogleTest/platforms/Xcode/GoogleTest.xcodeproj; sourceTree = "<group>"; };
+		D3CA95CB2905B10200305098 /* GoogleTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GoogleTests.mm; path = ../../../../external/MMGoogleTest/platforms/Xcode/GoogleTests.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +71,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D3CA95B22905B04F00305098 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3CA95CE2905B13F00305098 /* libGoogleTestMain_mac.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -42,7 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				D3CA95A9290585C700305098 /* Sudoku */,
+				D3CA95B62905B04F00305098 /* SudokuTests */,
 				D3CA95A8290585C700305098 /* Products */,
+				D3CA95CD2905B13F00305098 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				D3CA95A7290585C700305098 /* Sudoku */,
+				D3CA95B52905B04F00305098 /* SudokuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +107,32 @@
 				D3CA95AF2905861000305098 /* main.cpp */,
 			);
 			path = Sudoku;
+			sourceTree = "<group>";
+		};
+		D3CA95B62905B04F00305098 /* SudokuTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3CA95CB2905B10200305098 /* GoogleTests.mm */,
+				D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */,
+			);
+			path = SudokuTests;
+			sourceTree = "<group>";
+		};
+		D3CA95BD2905B0B100305098 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3CA95C42905B0B100305098 /* GoogleTest.framework */,
+				D3CA95C62905B0B100305098 /* libGoogleTest_mac.dylib */,
+				D3CA95C82905B0B100305098 /* libGoogleTestMain_mac.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3CA95CD2905B13F00305098 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +155,24 @@
 			productReference = D3CA95A7290585C700305098 /* Sudoku */;
 			productType = "com.apple.product-type.tool";
 		};
+		D3CA95B42905B04F00305098 /* SudokuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3CA95BB2905B04F00305098 /* Build configuration list for PBXNativeTarget "SudokuTests" */;
+			buildPhases = (
+				D3CA95B12905B04F00305098 /* Sources */,
+				D3CA95B22905B04F00305098 /* Frameworks */,
+				D3CA95B32905B04F00305098 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3CA95CA2905B0DB00305098 /* PBXTargetDependency */,
+			);
+			name = SudokuTests;
+			productName = SudokuTests;
+			productReference = D3CA95B52905B04F00305098 /* SudokuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -89,9 +180,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					D3CA95A6290585C700305098 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					D3CA95B42905B04F00305098 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
@@ -107,12 +202,53 @@
 			mainGroup = D3CA959C2905858900305098;
 			productRefGroup = D3CA95A8290585C700305098 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D3CA95BD2905B0B100305098 /* Products */;
+					ProjectRef = D3CA95BC2905B0B100305098 /* GoogleTest.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D3CA95A6290585C700305098 /* Sudoku */,
+				D3CA95B42905B04F00305098 /* SudokuTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D3CA95C42905B0B100305098 /* GoogleTest.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GoogleTest.framework;
+			remoteRef = D3CA95C32905B0B100305098 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3CA95C62905B0B100305098 /* libGoogleTest_mac.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libGoogleTest_mac.dylib;
+			remoteRef = D3CA95C52905B0B100305098 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D3CA95C82905B0B100305098 /* libGoogleTestMain_mac.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libGoogleTestMain_mac.dylib;
+			remoteRef = D3CA95C72905B0B100305098 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3CA95B32905B04F00305098 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3CA95A3290585C700305098 /* Sources */ = {
@@ -123,18 +259,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D3CA95B12905B04F00305098 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3CA95CC2905B10200305098 /* GoogleTests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3CA95CA2905B0DB00305098 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleTestMain_mac;
+			targetProxy = D3CA95C92905B0DB00305098 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D3CA95A12905858900305098 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 			};
 			name = Debug;
 		};
 		D3CA95A22905858900305098 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 			};
 			name = Release;
 		};
@@ -255,6 +409,139 @@
 			};
 			name = Release;
 		};
+		D3CA95B92905B04F00305098 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T9VFYYNMDJ;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = ../../../external/MMGoogleTest/GoogleTest/googletest/include;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrmartian.SudokuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D3CA95BA2905B04F00305098 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = T9VFYYNMDJ;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = ../../../external/MMGoogleTest/GoogleTest/googletest/include;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mrmartian.SudokuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -272,6 +559,15 @@
 			buildConfigurations = (
 				D3CA95AD290585C700305098 /* Debug */,
 				D3CA95AE290585C700305098 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3CA95BB2905B04F00305098 /* Build configuration list for PBXNativeTarget "SudokuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3CA95B92905B04F00305098 /* Debug */,
+				D3CA95BA2905B04F00305098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
