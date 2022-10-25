@@ -18,6 +18,7 @@ class Board
 {
 private:
     std::unique_ptr<std::vector<unsigned int>> _boardData;
+    const std::vector<unsigned int> getQuadrantFromIndex(unsigned int) const;
 public:
     static const unsigned int BOARD_DIMENSION = 9;
     Board();
