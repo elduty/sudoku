@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "Board.h"
+#include <cmath>
 
 using namespace sudoku;
 
@@ -45,50 +46,18 @@ const std::vector<unsigned int> Board::getColumn(unsigned int index) const
     return column;
 }
 
-const std::vector<unsigned int> Board::getQuadrantFromIndex(unsigned int index) const
-{
-    std::vector<unsigned int> quadrant;
-    
-    for(unsigned int x = 0; x < 3; ++x)
-        for(unsigned int y = 0; y < BOARD_DIMENSION; ++y)
-            quadrant.push_back(_boardData->at(index + y * BOARD_DIMENSION + x));
-    
-    return quadrant;
-}
-
 const std::vector<unsigned int> Board::getQuadrant(unsigned int index) const
 {
-    switch (index) {
-        case 0:
-            return getQuadrantFromIndex(0);
-            
-        case 1:
-            return getQuadrantFromIndex(3);
-            
-        case 2:
-            return getQuadrantFromIndex(6);
-            
-        case 3:
-            return getQuadrantFromIndex(27);
-            
-        case 4:
-            return getQuadrantFromIndex(30);
-            
-        case 5:
-            return getQuadrantFromIndex(33);
-            
-        case 6:
-            return getQuadrantFromIndex(54);
-            
-        case 7:
-            return getQuadrantFromIndex(57);
-            
-        case 8:
-            return getQuadrantFromIndex(60);
-            
-        default:
-            return std::vector<unsigned int> {0,0,0,0,0,0,0,0,0};
-    }
+    unsigned int dimentionSqrt = std::sqrt(BOARD_DIMENSION);
+    unsigned int firstElementIndex = (index % BOARD_DIMENSION) * dimentionSqrt + (index / BOARD_DIMENSION) * dimentionSqrt;
+    
+    std::vector<unsigned int> quadrant;
+    
+    for(unsigned int y = 0; y < dimentionSqrt; ++y)
+        for(unsigned int x = 0; x < dimentionSqrt; ++x)
+            quadrant.push_back(_boardData->at(y * BOARD_DIMENSION + x + firstElementIndex));
+    
+    return quadrant;
 }
 
 unsigned int Board::getRowForIndex(unsigned int index) const
@@ -103,7 +72,12 @@ unsigned int Board::getColumnForIndex(unsigned int index) const
 
 unsigned int Board::getQuadrantForIndex(unsigned int index) const
 {
-    return 0;
+    unsigned int row = getRowForIndex(index);
+    unsigned int column = getColumnForIndex(index);
+    
+    unsigned int dimentionSqrt = std::sqrt(BOARD_DIMENSION);
+    
+    return column / dimentionSqrt + (row / dimentionSqrt) * dimentionSqrt;
 }
 
 std::ostream& sudoku::operator<<(std::ostream& os, const Board& board)

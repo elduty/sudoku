@@ -26,6 +26,12 @@ bool isVectorUnique(const std::vector<unsigned int> & data)
     return !(std::adjacent_find(sortedData.begin(), sortedData.end()) != sortedData.end());
 }
 
+TEST(BoardTest, printBoard)
+{
+    Board board;
+    std::cout << board;
+}
+
 TEST(BoardTest, checkRange)
 {
     Board board;
