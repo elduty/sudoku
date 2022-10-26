@@ -19,13 +19,6 @@ void BoardTest::TearDown()
 {
 }
 
-bool isVectorUnique(const std::vector<unsigned int> & data)
-{
-    std::vector<unsigned int> sortedData = data;
-    sort(sortedData.begin(), sortedData.end());
-    return !(std::adjacent_find(sortedData.begin(), sortedData.end()) != sortedData.end());
-}
-
 TEST(BoardTest, printBoard)
 {
     Board board;
@@ -43,54 +36,55 @@ TEST(BoardTest, checkRange)
     }
 }
 
-TEST(BoardTest, checkRows)
+TEST(BoardTest, checkGetRowForIndex)
 {
     Board board;
     
-    for(unsigned int index = 0; index < Board::BOARD_DIMENSION; ++index)
-    {
-        std::vector<unsigned int> row = board.getRow(index);
-        
-        EXPECT_EQ(isVectorUnique(row), true);
-    }
+    EXPECT_EQ(board.getRowForIndex(0), 0);
+    EXPECT_EQ(board.getRowForIndex(10), 1);
+    EXPECT_EQ(board.getRowForIndex(20), 2);
+    EXPECT_EQ(board.getRowForIndex(30), 3);
+    EXPECT_EQ(board.getRowForIndex(40), 4);
+    EXPECT_EQ(board.getRowForIndex(50), 5);
+    EXPECT_EQ(board.getRowForIndex(60), 6);
+    EXPECT_EQ(board.getRowForIndex(70), 7);
+    EXPECT_EQ(board.getRowForIndex(80), 8);
 }
 
-TEST(BoardTest, checkColumns)
+TEST(BoardTest, checkGetColumnForIndex)
 {
     Board board;
     
-    for(unsigned int index = 0; index < Board::BOARD_DIMENSION; ++index)
-    {
-        std::vector<unsigned int> column = board.getColumn(index);
-        
-        EXPECT_EQ(isVectorUnique(column), true);
-    }
+    EXPECT_EQ(board.getColumnForIndex(0), 0);
+    EXPECT_EQ(board.getRowForIndex(10), 1);
+    EXPECT_EQ(board.getRowForIndex(20), 2);
+    EXPECT_EQ(board.getRowForIndex(30), 3);
+    EXPECT_EQ(board.getRowForIndex(40), 4);
+    EXPECT_EQ(board.getRowForIndex(50), 5);
+    EXPECT_EQ(board.getRowForIndex(60), 6);
+    EXPECT_EQ(board.getRowForIndex(70), 7);
+    EXPECT_EQ(board.getRowForIndex(80), 8);
 }
 
-TEST(BoardTest, checkQuadrants)
+TEST(BoardTest, checkQuadrantForIndex)
 {
     Board board;
     
-    for(unsigned int index = 0; index < Board::BOARD_DIMENSION; ++index)
-    {
-        std::vector<unsigned int> quadrant = board.getQuadrant(index);
-        
-        EXPECT_EQ(isVectorUnique(quadrant), true);
-    }
+    EXPECT_EQ(board.getQuadrantForIndex(0), 0);
+    EXPECT_EQ(board.getQuadrantForIndex(13), 1);
+    EXPECT_EQ(board.getQuadrantForIndex(26), 2);
+    EXPECT_EQ(board.getQuadrantForIndex(45), 3);
+    EXPECT_EQ(board.getQuadrantForIndex(32), 4);
+    EXPECT_EQ(board.getQuadrantForIndex(42), 5);
+    EXPECT_EQ(board.getQuadrantForIndex(65), 6);
+    EXPECT_EQ(board.getQuadrantForIndex(58), 7);
+    EXPECT_EQ(board.getQuadrantForIndex(79), 8);
 }
 
 TEST(BoardTest, checkValidity)
 {
     Board board;
     
-    for(unsigned int index = 0; index < Board::BOARD_DIMENSION; ++index)
-    {
-        std::vector<unsigned int> row = board.getRow(index);
-        std::vector<unsigned int> column = board.getColumn(index);
-        std::vector<unsigned int> quadrant = board.getQuadrant(index);
-        
-        EXPECT_EQ(isVectorUnique(row), true);
-        EXPECT_EQ(isVectorUnique(column), true);
-        EXPECT_EQ(isVectorUnique(quadrant), true);
-    }
+    EXPECT_EQ(board.isVectorUnique(std::vector<unsigned int>{1, 2, 3, 4, 5, 6, 7, 8}), true);
+    EXPECT_EQ(board.isVectorUnique(std::vector<unsigned int>{1, 2, 3, 4, 4, 6, 7, 8}), false);
 }

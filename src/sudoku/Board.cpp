@@ -80,6 +80,13 @@ unsigned int Board::getQuadrantForIndex(unsigned int index) const
     return column / dimentionSqrt + (row / dimentionSqrt) * dimentionSqrt;
 }
 
+bool Board::isVectorUnique(const std::vector<unsigned int> & data) const
+{
+    std::vector<unsigned int> sortedData = data;
+    sort(sortedData.begin(), sortedData.end());
+    return !(std::adjacent_find(sortedData.begin(), sortedData.end()) != sortedData.end());
+}
+
 std::ostream& sudoku::operator<<(std::ostream& os, const Board& board)
 {
     os << "-------------------" << std::endl;

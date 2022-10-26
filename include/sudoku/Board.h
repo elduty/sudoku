@@ -31,6 +31,8 @@ public:
     unsigned int getColumnForIndex(unsigned int) const;
     unsigned int getQuadrantForIndex(unsigned int) const;
     
+    bool isVectorUnique(const std::vector<unsigned int>&) const;
+    
     friend std::ostream& operator<<(std::ostream&, const Board&);
     inline const std::vector<unsigned int>& getBoardData() const {return *_boardData;}
 };
