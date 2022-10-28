@@ -15,6 +15,8 @@ int main(int argc, const char * argv[]) {
     // insert code here...    
     std::unique_ptr<Board> board = std::make_unique<Board>();
     
+    while(!board->generateBoard());
+    
     std::cout << *board;
     
     return 0;

@@ -18,6 +18,7 @@ class Board
 {
 private:
     std::unique_ptr<std::vector<unsigned int>> _boardData;
+    unsigned int getLegalValueForIndex(unsigned int index) const;
 public:
     static const unsigned int BOARD_DIMENSION = 9;
     Board();
@@ -32,6 +33,7 @@ public:
     unsigned int getQuadrantForIndex(unsigned int) const;
     
     bool isVectorUnique(const std::vector<unsigned int>&) const;
+    bool generateBoard();
     
     friend std::ostream& operator<<(std::ostream&, const Board&);
     inline const std::vector<unsigned int>& getBoardData() const {return *_boardData;}
