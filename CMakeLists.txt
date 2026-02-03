@@ -40,7 +40,7 @@ if(SUDOKU_BUILD_TESTS)
     # Silence deprecation warnings from vendored GoogleTest CMake files.
     set(CMAKE_WARN_DEPRECATED OFF CACHE BOOL "" FORCE)
 
-    add_subdirectory(external/MMGoogleTest/GoogleTest)
+    add_subdirectory(external/GoogleTest)
 
     add_executable(sudokuTests
         tests/src/BoardTest.cpp
