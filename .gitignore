@@ -51,3 +51,5 @@ Thumbs.db
 Platforms/Xcode/Sudoku/DerivedData
 Platforms/Xcode/Sudoku/Sudoku.xcodeproj/project.xcworkspace/xcuserdata
 Platforms/Xcode/Sudoku/Sudoku.xcodeproj/xcuserdata
+.cache
+build
