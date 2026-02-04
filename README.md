@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/elduty/sudoku/actions/workflows/ci.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![Codecov](https://codecov.io/gh/elduty/sudoku/branch/main/graph/badge.svg)](https://codecov.io/gh/elduty/sudoku)
 
 A C++20 Sudoku board generator that can produce full solutions or playable puzzles with unique solutions. Build with CMake and run on macOS, Linux, or Windows.
 
