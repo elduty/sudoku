@@ -1,5 +1,7 @@
 # Sudoku Generator
 
+![CI](https://github.com/elduty/sudoku/actions/workflows/ci.yml/badge.svg)
+
 A C++20 Sudoku board generator that can produce full solutions or playable puzzles with unique solutions. Build with CMake and run on macOS, Linux, or Windows.
 
 ## Features
