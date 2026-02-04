@@ -48,6 +48,18 @@ Set clue count or a deterministic seed:
 ctest --test-dir build --output-on-failure
 ```
 
+## Coverage
+
+Code coverage is collected on CI and uploaded to [Codecov](https://codecov.io/gh/elduty/sudoku). To generate coverage locally:
+
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage"
+cmake --build build
+ctest --test-dir build
+lcov --capture --directory build --output-file coverage.info --ignore-errors mismatch
+lcov --remove coverage.info '/usr/*' '*/external/*' '*/tests/*' --output-file coverage.info --ignore-errors mismatch
+```
+
 ## Benchmark
 
 ```bash
