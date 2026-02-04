@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(Sudoku VERSION 0.1.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -18,7 +18,7 @@ target_include_directories(sudoku_lib
         ${CMAKE_SOURCE_DIR}/include
 )
 
-target_compile_features(sudoku_lib PUBLIC cxx_std_17)
+target_compile_features(sudoku_lib PUBLIC cxx_std_20)
 
 target_compile_options(sudoku_lib PRIVATE
     $<$<CXX_COMPILER_ID:AppleClang,Clang,GNU>:-Wall -Wextra -Wpedantic>
@@ -31,6 +31,11 @@ add_executable(sudoku
 )
 
 target_link_libraries(sudoku PRIVATE sudoku::lib)
+
+add_executable(sudokuBench
+    bench/sudoku_bench.cpp
+)
+target_link_libraries(sudokuBench PRIVATE sudoku::lib)
 
 # Tests
 if(SUDOKU_BUILD_TESTS)
