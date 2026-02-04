@@ -53,3 +53,7 @@ Platforms/Xcode/Sudoku/Sudoku.xcodeproj/project.xcworkspace/xcuserdata
 Platforms/Xcode/Sudoku/Sudoku.xcodeproj/xcuserdata
 .cache
 build
+
+# Local docs
+AGENTS.md
+CLAUDE.md
