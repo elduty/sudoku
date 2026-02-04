@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <array>
+#include <sstream>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -73,4 +74,98 @@ TEST(BoardTest, generatePuzzleProducesUniqueBoardWithClueCount)
 
     EXPECT_EQ(clues, clueTarget);
     EXPECT_EQ(board.countSolutions(2), 1u);
+}
+
+TEST(BoardTest, constructorWithoutSeedCreatesBoard)
+{
+    Board board;
+    EXPECT_EQ(board.getBoardData().size(), Board::BOARD_DIMENSION * Board::BOARD_DIMENSION);
+}
+
+TEST(BoardTest, setSeedChangesBoardGeneration)
+{
+    Board board1(1111);
+    board1.generateSolution();
+    auto data1 = board1.getBoardData();
+
+    Board board2(2222);
+    board2.generateSolution();
+    board2.setSeed(1111);
+    board2.generateSolution();
+    auto data2 = board2.getBoardData();
+
+    EXPECT_EQ(data1, data2);
+}
+
+TEST(BoardTest, getRowForIndexReturnsCorrectRow)
+{
+    Board board;
+    EXPECT_EQ(board.getRowForIndex(0), 0u);
+    EXPECT_EQ(board.getRowForIndex(8), 0u);
+    EXPECT_EQ(board.getRowForIndex(9), 1u);
+    EXPECT_EQ(board.getRowForIndex(80), 8u);
+}
+
+TEST(BoardTest, getColumnForIndexReturnsCorrectColumn)
+{
+    Board board;
+    EXPECT_EQ(board.getColumnForIndex(0), 0u);
+    EXPECT_EQ(board.getColumnForIndex(8), 8u);
+    EXPECT_EQ(board.getColumnForIndex(9), 0u);
+    EXPECT_EQ(board.getColumnForIndex(80), 8u);
+}
+
+TEST(BoardTest, getQuadrantForIndexReturnsCorrectQuadrant)
+{
+    Board board;
+    EXPECT_EQ(board.getQuadrantForIndex(0), 0u);
+    EXPECT_EQ(board.getQuadrantForIndex(3), 1u);
+    EXPECT_EQ(board.getQuadrantForIndex(27), 3u);
+    EXPECT_EQ(board.getQuadrantForIndex(40), 4u);
+    EXPECT_EQ(board.getQuadrantForIndex(80), 8u);
+}
+
+TEST(BoardTest, isVectorUniqueReturnsTrueForUniqueValues)
+{
+    Board board;
+    std::vector<unsigned int> unique = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    EXPECT_TRUE(board.isVectorUnique(unique));
+}
+
+TEST(BoardTest, isVectorUniqueReturnsFalseForDuplicates)
+{
+    Board board;
+    std::vector<unsigned int> duplicates = {1, 2, 3, 4, 5, 5, 7, 8, 9};
+    EXPECT_FALSE(board.isVectorUnique(duplicates));
+}
+
+TEST(BoardTest, generatePuzzleFailsWithTooManyClues)
+{
+    Board board(9999);
+    EXPECT_FALSE(board.generatePuzzle(82));
+}
+
+TEST(BoardTest, streamOutputProducesFormattedBoard)
+{
+    Board board(4242);
+    board.generateSolution();
+
+    std::ostringstream oss;
+    oss << board;
+
+    std::string output = oss.str();
+    EXPECT_FALSE(output.empty());
+    EXPECT_NE(output.find("-------------------"), std::string::npos);
+    EXPECT_NE(output.find("|"), std::string::npos);
+}
+
+TEST(BoardTest, differentSeedsProduceDifferentSolutions)
+{
+    Board board1(1234);
+    board1.generateSolution();
+
+    Board board2(5678);
+    board2.generateSolution();
+
+    EXPECT_NE(board1.getBoardData(), board2.getBoardData());
 }
