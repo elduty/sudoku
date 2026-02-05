@@ -180,17 +180,15 @@ TEST(BoardTest, countSolutionsReturnsZeroWhenLimitIsZero)
 TEST(BoardTest, countSolutionsReturnsZeroForInvalidDigitOnBoard)
 {
     Board board;
-    std::vector<unsigned int>& data = const_cast<std::vector<unsigned int>&>(board.getBoardData());
-    data[0] = 10;
+    board.getBoardData()[0] = 10;
     EXPECT_EQ(board.countSolutions(2), 0u);
 }
 
 TEST(BoardTest, countSolutionsReturnsZeroForConflictingDigits)
 {
     Board board;
-    std::vector<unsigned int>& data = const_cast<std::vector<unsigned int>&>(board.getBoardData());
-    data[0] = 1;
-    data[1] = 1;
+    board.getBoardData()[0] = 1;
+    board.getBoardData()[1] = 1;
     EXPECT_EQ(board.countSolutions(2), 0u);
 }
 
@@ -213,7 +211,7 @@ TEST(BoardTest, generatePuzzleWithFullCluesKeepsSolvedBoard)
 TEST(BoardTest, getRowColumnAndQuadrantReadExpectedCells)
 {
     Board board;
-    std::vector<unsigned int>& data = const_cast<std::vector<unsigned int>&>(board.getBoardData());
+    std::vector<unsigned int>& data = board.getBoardData();
     for(unsigned int i = 0; i < data.size(); ++i)
         data[i] = i + 1;
 

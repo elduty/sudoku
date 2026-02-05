@@ -39,6 +39,7 @@ inline unsigned int boxForRowColumn(unsigned int row, unsigned int column)
 
 Board::Board(std::optional<uint32_t> seed)
     : _boardData(kBoardCells, 0),
+      _workBuffer(kBoardCells, 0),
       _rng(seed.has_value() ? seed.value() : std::random_device{}())
 {
 }
@@ -286,8 +287,8 @@ bool Board::generatePuzzle(unsigned int clues)
 
 unsigned int Board::countSolutions(unsigned int limit) const
 {
-    std::vector<unsigned int> data = _boardData;
-    return countSolutionsOnData(data, limit);
+    _workBuffer = _boardData;
+    return countSolutionsOnData(_workBuffer, limit);
 }
 
 unsigned int Board::getIndexForRowColumn(unsigned int row, unsigned int column) const
@@ -295,16 +296,22 @@ unsigned int Board::getIndexForRowColumn(unsigned int row, unsigned int column) 
     return row * BOARD_DIMENSION + column;
 }
 
-const std::vector<unsigned int> Board::getRow(unsigned int index) const
+std::vector<unsigned int> Board::getRow(unsigned int index) const
 {
+    if(index >= BOARD_DIMENSION)
+        throw std::out_of_range("Row index out of range");
+
     std::vector<unsigned int> row(BOARD_DIMENSION);
     const unsigned int start = index * BOARD_DIMENSION;
     std::copy_n(_boardData.begin() + start, BOARD_DIMENSION, row.begin());
     return row;
 }
 
-const std::vector<unsigned int> Board::getColumn(unsigned int index) const
+std::vector<unsigned int> Board::getColumn(unsigned int index) const
 {
+    if(index >= BOARD_DIMENSION)
+        throw std::out_of_range("Column index out of range");
+
     std::vector<unsigned int> column(BOARD_DIMENSION);
     for(unsigned int y = 0; y < BOARD_DIMENSION; ++y)
         column[y] = _boardData[y * BOARD_DIMENSION + index];
@@ -312,8 +319,11 @@ const std::vector<unsigned int> Board::getColumn(unsigned int index) const
     return column;
 }
 
-const std::vector<unsigned int> Board::getQuadrant(unsigned int index) const
+std::vector<unsigned int> Board::getQuadrant(unsigned int index) const
 {
+    if(index >= BOARD_DIMENSION)
+        throw std::out_of_range("Quadrant index out of range");
+
     std::vector<unsigned int> quadrant;
     quadrant.reserve(BOARD_DIMENSION);
 
@@ -329,18 +339,27 @@ const std::vector<unsigned int> Board::getQuadrant(unsigned int index) const
 
 unsigned int Board::getRowForIndex(unsigned int index) const
 {
+    if(index >= kBoardCells)
+        throw std::out_of_range("Cell index out of range");
+
     return rowForIndex(index);
 }
 
 unsigned int Board::getColumnForIndex(unsigned int index) const
 {
+    if(index >= kBoardCells)
+        throw std::out_of_range("Cell index out of range");
+
     return columnForIndex(index);
 }
 
 unsigned int Board::getQuadrantForIndex(unsigned int index) const
 {
-    const unsigned int row = getRowForIndex(index);
-    const unsigned int column = getColumnForIndex(index);
+    if(index >= kBoardCells)
+        throw std::out_of_range("Cell index out of range");
+
+    const unsigned int row = rowForIndex(index);
+    const unsigned int column = columnForIndex(index);
 
     return column / kBoxDimension + (row / kBoxDimension) * kBoxDimension;
 }
@@ -350,6 +369,9 @@ bool Board::isVectorUnique(const std::vector<unsigned int> & data) const
     uint16_t seen = 0;
     for(unsigned int value : data)
     {
+        if(value == 0)
+            continue;
+
         if(value > BOARD_DIMENSION)
             return false;
 

@@ -10,6 +10,7 @@ A C++20 Sudoku board generator that can produce full solutions or playable puzzl
 - Backtracking solver with MRV (minimum remaining values) cell selection.
 - Incremental row/column/box bitmask constraints for fast legality checks.
 - Unique-solution puzzle generation with configurable clue count.
+- Bounds-checked accessors with `std::out_of_range` exceptions.
 - Simple benchmarking harness.
 
 ## How It Works
@@ -87,7 +88,8 @@ lcov --remove coverage.info '/usr/*' '*/external/*' '*/tests/*' --output-file co
 The benchmark reports average/min/max solution generation time in milliseconds.
 
 ## Project Layout
-- `src/` and `include/`: core library and CLI.
+- `include/`: public headers (`Board.h`, `ParseUtils.h`).
+- `src/`: core library and CLI.
 - `tests/src/`: GoogleTest suite.
 - `bench/`: benchmarking harness.
 - `external/GoogleTest`: vendored GoogleTest.

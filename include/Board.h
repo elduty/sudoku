@@ -13,6 +13,7 @@
 #include <iostream>
 #include <optional>
 #include <random>
+#include <stdexcept>
 #include <vector>
 
 namespace sudoku {
@@ -24,6 +25,7 @@ public:
 
 private:
     std::vector<unsigned int> _boardData;
+    mutable std::vector<unsigned int> _workBuffer;
     std::mt19937 _rng;
 
     unsigned int getIndexForRowColumn(unsigned int row, unsigned int column) const;
@@ -56,9 +58,9 @@ public:
 
     void setSeed(uint32_t seed);
 
-    const std::vector<unsigned int> getRow(unsigned int) const;
-    const std::vector<unsigned int> getColumn(unsigned int) const;
-    const std::vector<unsigned int> getQuadrant(unsigned int) const;
+    std::vector<unsigned int> getRow(unsigned int) const;
+    std::vector<unsigned int> getColumn(unsigned int) const;
+    std::vector<unsigned int> getQuadrant(unsigned int) const;
 
     unsigned int getRowForIndex(unsigned int) const;
     unsigned int getColumnForIndex(unsigned int) const;
@@ -71,6 +73,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream&, const Board&);
     inline const std::vector<unsigned int>& getBoardData() const {return _boardData;}
+    inline std::vector<unsigned int>& getBoardData() {return _boardData;}
 };
 
 }

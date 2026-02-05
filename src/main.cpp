@@ -5,12 +5,12 @@
 //  Created by Marcin on 23/10/2022.
 //
 
-#include <cstdlib>
 #include <iostream>
 #include <memory>
 #include <optional>
 #include <string>
 #include "Board.h"
+#include "ParseUtils.h"
 
 using namespace sudoku;
 
@@ -22,18 +22,6 @@ void printUsage(const char* program)
     std::cout << "  --clues N     Number of given cells (default 30)\n";
     std::cout << "  --seed N      Deterministic seed for generation\n";
     std::cout << "  --solution    Print a full solved board\n";
-}
-
-bool parseUnsigned(const std::string& value, unsigned int& out)
-{
-    if(value.empty())
-        return false;
-    char* end = nullptr;
-    unsigned long parsed = std::strtoul(value.c_str(), &end, 10);
-    if(end == value.c_str() || *end != '\0')
-        return false;
-    out = static_cast<unsigned int>(parsed);
-    return true;
 }
 
 } // namespace
@@ -86,13 +74,25 @@ int main(int argc, const char * argv[]) {
 
     std::unique_ptr<Board> board = std::make_unique<Board>(seed);
 
-    if(solutionOnly)
+    constexpr unsigned int maxAttempts = 1000;
+    bool success = false;
+
+    for(unsigned int attempt = 0; attempt < maxAttempts; ++attempt)
     {
-        while(!board->generateSolution());
+        if(solutionOnly)
+        {
+            if(board->generateSolution()) { success = true; break; }
+        }
+        else
+        {
+            if(board->generatePuzzle(clues)) { success = true; break; }
+        }
     }
-    else
+
+    if(!success)
     {
-        while(!board->generatePuzzle(clues));
+        std::cerr << "Failed to generate board after " << maxAttempts << " attempts\n";
+        return 1;
     }
 
     std::cout << *board;

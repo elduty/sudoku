@@ -1,11 +1,11 @@
 #include <chrono>
-#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include "Board.h"
+#include "ParseUtils.h"
 
 using namespace sudoku;
 
@@ -15,18 +15,6 @@ void printUsage(const char* program)
 {
     std::cout << "Usage: " << program << " [--iterations N]\n";
     std::cout << "  --iterations N  Number of runs (default 100)\n";
-}
-
-bool parseUnsigned(const std::string& value, unsigned int& out)
-{
-    if(value.empty())
-        return false;
-    char* end = nullptr;
-    unsigned long parsed = std::strtoul(value.c_str(), &end, 10);
-    if(end == value.c_str() || *end != '\0')
-        return false;
-    out = static_cast<unsigned int>(parsed);
-    return true;
 }
 
 } // namespace
