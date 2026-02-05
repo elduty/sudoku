@@ -7,9 +7,27 @@
 A C++20 Sudoku board generator that can produce full solutions or playable puzzles with unique solutions. Build with CMake and run on macOS, Linux, or Windows.
 
 ## Features
-- Randomized backtracking solver (guaranteed solution).
+- Backtracking solver with MRV (minimum remaining values) cell selection.
+- Incremental row/column/box bitmask constraints for fast legality checks.
 - Unique-solution puzzle generation with configurable clue count.
 - Simple benchmarking harness.
+
+## How It Works
+
+### Solution generation
+1. Start from an empty 9x9 board.
+2. Keep three constraint masks (`row`, `column`, `box`) where bit `1<<digit` marks used digits.
+3. Pick the next empty cell using MRV (the cell with the fewest legal candidates).
+4. Build candidate digits from bitmasks, shuffle candidate order (for randomness), and recurse.
+5. On failure, backtrack by clearing the cell and restoring masks.
+6. Finish when no empty cells remain.
+
+### Puzzle generation
+1. Generate a full solved board.
+2. Shuffle all 81 indices and try removing values one by one.
+3. After each removal, count solutions with an early-stop limit of 2.
+4. Keep the removal only if exactly one solution remains.
+5. Stop when the requested clue count is reached.
 
 ## Build
 From the repository root:
@@ -65,6 +83,8 @@ lcov --remove coverage.info '/usr/*' '*/external/*' '*/tests/*' --output-file co
 ```bash
 ./build/sudokuBench --iterations 100
 ```
+
+The benchmark reports average/min/max solution generation time in milliseconds.
 
 ## Project Layout
 - `src/` and `include/`: core library and CLI.
